@@ -6,7 +6,8 @@ describe BankWorkingDay do
   end
 
   describe '.end_of_month_without_holiday' do
-    subject { BankWorkingDay.end_of_month_without_holiday(year: year, month: month) }
+    subject { BankWorkingDay.end_of_month_without_holiday(date) }
+    let(:date) { Date.new(year, month) }
 
     context 'when year and month was given' do
       let(:year) { 2016 }
