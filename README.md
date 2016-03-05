@@ -1,8 +1,7 @@
 # BankWorkingDay
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/bank_working_day`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+日本の銀行に関して、その休日を把握しやすくするためのgem.
+[holiday_jp](https://github.com/komagata/holiday_jp)をベースに、作っています.
 
 ## Installation
 
@@ -22,7 +21,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+#### 銀行における月の最終営業日を返す
+
+```ruby
+BankWorkingDay.end_of_month_without_holiday(date)
+```
+
+#### x営業日前の日付を返す
+
+```ruby
+BankWorkingDay.working_day_before(date: date, offset: offset)
+```
+
+#### 休日か確認する
+
+```ruby
+BankWorkingDay.holiday?(date)
+```
 
 ## Development
 
