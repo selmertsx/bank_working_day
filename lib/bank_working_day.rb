@@ -1,11 +1,11 @@
 require 'active_support'
 require 'active_support/core_ext'
-require 'working_day/version'
-require 'working_day/holidays'
+require 'bank_working_day/version'
+require 'bank_working_day/holidays'
 require 'pry'
 
 
-module WorkingDay
+module BankWorkingDay
   def self.end_of_month_without_holiday(year: , month: )
     end_of_month = Date.new(year, month).end_of_month
 
@@ -18,6 +18,6 @@ module WorkingDay
   private
 
   def self.holidays
-    @@_holidays ||= Holidays.new
+    @holidays ||= Holidays.new
   end
 end

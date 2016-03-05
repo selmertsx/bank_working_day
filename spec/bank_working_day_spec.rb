@@ -1,12 +1,12 @@
 require 'spec_helper'
 
-describe WorkingDay do
+describe BankWorkingDay do
   it 'has a version number' do
-    expect(WorkingDay::VERSION).not_to be nil
+    expect(BankWorkingDay::VERSION).not_to be nil
   end
 
   describe '.end_of_month_without_holiday' do
-    subject { WorkingDay.end_of_month_without_holiday(year: year, month: month) }
+    subject { BankWorkingDay.end_of_month_without_holiday(year: year, month: month) }
 
     context 'when year and month was given' do
       let(:year) { 2016 }

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 require 'yaml'
 
-module WorkingDay
+module BankWorkingDay
   class Holiday
     def initialize(date, name)
       @date = date
