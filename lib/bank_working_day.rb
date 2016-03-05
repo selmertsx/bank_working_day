@@ -15,6 +15,15 @@ module BankWorkingDay
     end
   end
 
+  def self.working_day_before(date: , offset: )
+    offset.times do |i|
+      date -= 1
+      date -= 1 while holiday?(date)
+    end
+
+    date
+  end
+
   def self.holiday?(date)
     holidays.holiday?(date)
   end

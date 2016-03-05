@@ -45,4 +45,20 @@ describe BankWorkingDay do
       it { is_expected.to be_truthy }
     end
   end
+
+  describe '.working_day_before' do
+    subject { BankWorkingDay.working_day_before(date: date, offset: offset) }
+
+    context 'when Sunday 2016/4/30' do
+      let(:date) { Date.new(2016, 4, 30) }
+      let(:offset) { 3 }
+      it { is_expected.to eq Date.new(2016, 4, 26) }
+    end
+
+    context 'when Friday 2016/3/4' do
+      let(:date) { Date.new(2016, 3, 4) }
+      let(:offset) { 3 }
+      it { is_expected.to eq Date.new(2016, 3, 1) }
+    end
+  end
 end
