@@ -11,7 +11,7 @@ describe WorkingDay do
     let(:month) { 3 }
 
     it 'when year and month was given' do
-      is_expected.to eq (31)
+      is_expected.to eq Date.new(2016, 3, 31)
     end
   end
 end
