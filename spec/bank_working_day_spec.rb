@@ -19,5 +19,11 @@ describe BankWorkingDay do
       let(:month) { 4 }
       it { is_expected.to eq Date.new(2016, 4, 28) }
     end
+
+    context 'when year-end and new-year' do
+      let(:year) { 2012 }
+      let(:month) { 12 }
+      it { is_expected.to eq Date.new(2012, 12, 28) }
+    end
   end
 end
