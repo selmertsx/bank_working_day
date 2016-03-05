@@ -22,7 +22,7 @@ module WorkingDay
     end
 
     def holiday?(date)
-      holidays[date] && date.wday.in? HOLIDAY_WDAYS
+      holidays[date] || date.wday.in?(HOLIDAY_WDAYS)
     end
   end
 end

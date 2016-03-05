@@ -5,13 +5,19 @@ describe WorkingDay do
     expect(WorkingDay::VERSION).not_to be nil
   end
 
-  context '.end_of_month_without_holiday' do
+  describe '.end_of_month_without_holiday' do
     subject { WorkingDay.end_of_month_without_holiday(year: year, month: month) }
-    let(:year) { 2016 }
-    let(:month) { 3 }
 
-    it 'when year and month was given' do
-      is_expected.to eq Date.new(2016, 3, 31)
+    context 'when year and month was given' do
+      let(:year) { 2016 }
+      let(:month) { 3 }
+      it { is_expected.to eq Date.new(2016, 3, 31) }
+    end
+
+    context 'when end of month is holiday' do
+      let(:year) { 2016 }
+      let(:month) { 4 }
+      it { is_expected.to eq Date.new(2016, 4, 28) }
     end
   end
 end
