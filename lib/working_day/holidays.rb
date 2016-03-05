@@ -2,8 +2,16 @@
 require 'yaml'
 
 module WorkingDay
+  class Holiday
+    def initialize(date, name)
+      @date = date
+      @name = name
+    end
+  end
+
   class Holidays
     attr_accessor :holidays
+    HOLIDAY_WDAYS = [0, 6].freeze
 
     def initialize
       @holidays = {}
@@ -14,14 +22,7 @@ module WorkingDay
     end
 
     def holiday?(date)
-      holidays[date]
-    end
-  end
-
-  class Holiday
-    def initialize(date, name)
-      @date = date
-      @name = name
+      holidays[date] && date.wday.in? HOLIDAY_WDAYS
     end
   end
 end
