@@ -15,6 +15,10 @@ module BankWorkingDay
     end
   end
 
+  def self.holiday?(date)
+    holidays.holiday?(date)
+  end
+
   private
 
   def self.holidays

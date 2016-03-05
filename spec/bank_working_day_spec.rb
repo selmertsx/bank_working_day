@@ -26,4 +26,23 @@ describe BankWorkingDay do
       it { is_expected.to eq Date.new(2012, 12, 28) }
     end
   end
+
+  describe '.holiday?' do
+    subject { BankWorkingDay.holiday?(date) }
+
+    context 'when Friday 2012/12/28 ' do
+      let(:date) { Date.new(2012, 12, 28)}
+      it { is_expected.to be_falsey }
+    end
+
+    context 'when Monday 2012/12/31' do
+      let(:date) { Date.new(2012, 12, 31)}
+      it { is_expected.to be_truthy }
+    end
+
+    context 'when 2016-04-29 昭和の日' do
+      let(:date) { Date.new(2016, 4, 29)}
+      it { is_expected.to be_truthy }
+    end
+  end
 end
