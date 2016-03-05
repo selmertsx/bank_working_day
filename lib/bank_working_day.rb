@@ -2,8 +2,6 @@ require 'active_support'
 require 'active_support/core_ext'
 require 'bank_working_day/version'
 require 'bank_working_day/holidays'
-require 'pry'
-
 
 module BankWorkingDay
   def self.end_of_month_without_holiday(date)
