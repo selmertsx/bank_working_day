@@ -62,4 +62,26 @@ describe BankWorkingDay do
       it { is_expected.to eq Date.new(2016, 3, 1) }
     end
   end
+
+  describe '.working_day_after' do
+    subject { BankWorkingDay.working_day_after(date: date, offset: offset) }
+
+    context 'when 2016/4/27 and after 1 working day' do
+      let(:date) { Date.new(2016, 4, 27) }
+      let(:offset) { 1 }
+      it { is_expected.to eq Date.new(2016, 4, 28) }
+    end
+
+    context 'when 2016/4/27 and after 2 working day' do
+      let(:date) { Date.new(2016, 4, 27) }
+      let(:offset) { 2 }
+      it { is_expected.to eq Date.new(2016, 5, 2) }
+    end
+
+    context 'when 2016/4/27 and after 3 working day' do
+      let(:date) { Date.new(2016, 4, 27) }
+      let(:offset) { 3 }
+      it { is_expected.to eq Date.new(2016, 5, 6) }
+    end
+  end
 end
