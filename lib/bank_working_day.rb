@@ -29,6 +29,17 @@ module BankWorkingDay
     date
   end
 
+  def self.aplus_deduction_date(year: , month: )
+    raise InvalidArgumentError if year.to_i.zero? || month.to_i.zero?
+
+    date = Date.new(year.to_i, month.to_i, 27)
+    while holiday?(date)
+      date += 1
+    end
+
+    date
+  end
+
   def self.holiday?(date)
     holidays.holiday?(date)
   end

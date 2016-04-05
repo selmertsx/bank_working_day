@@ -84,4 +84,25 @@ describe BankWorkingDay do
       it { is_expected.to eq Date.new(2016, 5, 6) }
     end
   end
+
+  describe '.aplus_deduction_date' do
+    subject { BankWorkingDay.aplus_deduction_date(year: year, month: month) }
+    context 'when 2016/7/27 deduction date is 2016/7/27' do
+      let(:year) { '2016' }
+      let(:month) { '7' }
+      it { is_expected.to eq Date.new(2016, 7, 27) }
+    end
+
+    context 'when 2016/8/27 deduction date is 2016/8/29' do
+      let(:year) { '2016' }
+      let(:month) { '8' }
+      it { is_expected.to eq Date.new(2016, 8, 29) }
+    end
+
+    context 'when 2016/3/27 deduction date is 2016/3/28' do
+      let(:year) { '2016' }
+      let(:month) { '3' }
+      it { is_expected.to eq Date.new(2016, 3, 28) }
+    end
+  end
 end
