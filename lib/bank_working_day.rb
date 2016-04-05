@@ -4,6 +4,8 @@ require 'bank_working_day/version'
 require 'bank_working_day/holidays'
 
 module BankWorkingDay
+  class InvalidArgumentError < StandardError; end
+
   def self.end_of_month_without_holiday(date)
     date.end_of_month.day.downto(1) do |last_day|
       last_day = Date.new(date.year, date.month, last_day)

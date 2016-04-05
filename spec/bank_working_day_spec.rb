@@ -104,5 +104,11 @@ describe BankWorkingDay do
       let(:month) { '3' }
       it { is_expected.to eq Date.new(2016, 3, 28) }
     end
+
+    context 'when invalid argument' do
+      let(:year) { 'hoge' }
+      let(:month) { 'huga' }
+      it { expect { subject }.to raise_error BankWorkingDay::InvalidArgumentError }
+    end
   end
 end
