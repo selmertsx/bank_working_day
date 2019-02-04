@@ -1,12 +1,14 @@
 require 'spec_helper'
 
 describe BankWorkingDay do
+  let(:bank_working_day) { BankWorkingDay::BankWorkingDay.new }
+
   it 'has a version number' do
     expect(BankWorkingDay::VERSION).not_to be nil
   end
 
   describe '.end_of_month_without_holiday' do
-    subject { BankWorkingDay.end_of_month_without_holiday(date) }
+    subject { bank_working_day.end_of_month_without_holiday(date) }
     let(:date) { Date.new(year, month) }
 
     context 'when year and month was given' do
@@ -29,7 +31,7 @@ describe BankWorkingDay do
   end
 
   describe '.holiday?' do
-    subject { BankWorkingDay.holiday?(date) }
+    subject { bank_working_day.holiday?(date) }
 
     context 'when Friday 2012/12/28 ' do
       let(:date) { Date.new(2012, 12, 28)}
@@ -48,7 +50,7 @@ describe BankWorkingDay do
   end
 
   describe '.working_day_before' do
-    subject { BankWorkingDay.working_day_before(date: date, offset: offset) }
+    subject { bank_working_day.working_day_before(date: date, offset: offset) }
 
     context 'when Sunday 2016/4/30' do
       let(:date) { Date.new(2016, 4, 30) }
@@ -64,7 +66,7 @@ describe BankWorkingDay do
   end
 
   describe '.working_day_after' do
-    subject { BankWorkingDay.working_day_after(date: date, offset: offset) }
+    subject { bank_working_day.working_day_after(date: date, offset: offset) }
 
     context 'when 2016/4/27 and after 1 working day' do
       let(:date) { Date.new(2016, 4, 27) }
@@ -86,7 +88,7 @@ describe BankWorkingDay do
   end
 
   describe '.aplus_deduction_date' do
-    subject { BankWorkingDay.deduction_date(year: year, month: month, day: 27) }
+    subject { bank_working_day.deduction_date(year: year, month: month, day: 27) }
     context 'when 2016/7/27 deduction date is 2016/7/27' do
       let(:year) { '2016' }
       let(:month) { '7' }
