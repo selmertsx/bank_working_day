@@ -6,7 +6,7 @@ require 'bank_working_day/holidays'
 module BankWorkingDay
   class InvalidArgumentError < StandardError; end
 
-  class BankWorkingDay
+  class Base
     attr_accessor :holidays
 
     def initialize(holidays_yml_path='../../../holidays.yml')

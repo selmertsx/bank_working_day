@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe BankWorkingDay do
-  let(:bank_working_day) { BankWorkingDay::BankWorkingDay.new }
+  let(:bank_working_day) { BankWorkingDay::Base.new }
 
   it 'has a version number' do
     expect(BankWorkingDay::VERSION).not_to be nil
