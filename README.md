@@ -24,13 +24,13 @@ Or install it yourself as:
 #### 初期化
 
 ```ruby
-bank_working_day = BankWorkingDay::Base()
+bank_working_day = BankWorkingDay::Base.new()
 ```
 
 祝日の情報をオーバーライドしたい場合はYAMLファイルのパスを渡す
 
 ```ruby
-bank_working_day = BankWorkingDay::Base('/path/to/holidays.yml')
+bank_working_day = BankWorkingDay::Base.new('/path/to/holidays.yml')
 ```
 
 #### 銀行における月の最終営業日を返す
