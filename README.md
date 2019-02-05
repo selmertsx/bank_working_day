@@ -21,22 +21,34 @@ Or install it yourself as:
 
 ## Usage
 
+#### 初期化
+
+```ruby
+bank_working_day = BankWorkingDay::Base()
+```
+
+祝日の情報をオーバーライドしたい場合はYAMLファイルのパスを渡す
+
+```ruby
+bank_working_day = BankWorkingDay::Base('/path/to/holidays.yml')
+```
+
 #### 銀行における月の最終営業日を返す
 
 ```ruby
-BankWorkingDay.end_of_month_without_holiday(date)
+bank_working_day.end_of_month_without_holiday(date)
 ```
 
 #### x営業日前の日付を返す
 
 ```ruby
-BankWorkingDay.working_day_before(date: date, offset: offset)
+bank_working_day.working_day_before(date: date, offset: offset)
 ```
 
 #### 休日か確認する
 
 ```ruby
-BankWorkingDay.holiday?(date)
+bank_working_day.holiday?(date)
 ```
 
 ## Development
@@ -53,4 +65,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
